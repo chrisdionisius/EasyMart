@@ -26,14 +26,14 @@
                 <!-- User Account -->
                 <li class="dropdown user-menu">
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <span class="d-none d-lg-inline-block">Admin Podjok Arowana</span>
+                        <span class="d-none d-lg-inline-block">Admin Easy Mart</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <!-- User image -->
                         <li class="dropdown-header">
                             <div class="d-inline-block">
                                 Admin
-                                <small class="pt-1">admin@podjokarowana.com</small>
+                                <small class="pt-1">admin@easymart.com</small>
                             </div>
                         </li>
                         <li class="dropdown-footer">

@@ -76,7 +76,7 @@ class KategoriController extends Controller
         $kategori = Kategori::findOrFail($kategori->id);
         $kategoris = Kategori::orderBy('nama', 'asc')->get();
 
-        $this->data['kategoris'] = $kategoris->toArray();
+        $this->data['kategoris'] = $kategoris;
         $this->data['kategori'] = $kategori;
         return view('admin.categories.form', $this->data);
     }
