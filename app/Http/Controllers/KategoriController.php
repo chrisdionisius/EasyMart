@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Kategori;
 use Illuminate\Http\Request;
 
+use Str;
+use Session;
+
 class KategoriController extends Controller
 {
     /**
@@ -12,9 +15,17 @@ class KategoriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->data['currentAdminMenu'] = 'produk';
+        $this->data['currentAdminSubMenu'] = 'tambah';
+    }
     public function index()
     {
-        //
+        $this->data['kategoris'] = Kategori::orderBy('nama', 'ASC')->paginate(10);
+        return view('admin.categories.index', $this->data);
     }
 
     /**
@@ -24,7 +35,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.form',$this->data);
     }
 
     /**
@@ -35,7 +46,12 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $params = $request->except('_token');
+
+        if (Kategori::create($params)) {
+            Session::flash('success', 'Category has been saved');
+        }
+        return redirect('admin/kategoris');
     }
 
     /**
@@ -46,7 +62,7 @@ class KategoriController extends Controller
      */
     public function show(Kategori $kategori)
     {
-        //
+        
     }
 
     /**
@@ -57,7 +73,12 @@ class KategoriController extends Controller
      */
     public function edit(Kategori $kategori)
     {
-        //
+        $kategori = Kategori::findOrFail($kategori->id);
+        $kategoris = Kategori::orderBy('nama', 'asc')->get();
+
+        $this->data['kategoris'] = $kategoris->toArray();
+        $this->data['kategori'] = $kategori;
+        return view('admin.categories.form', $this->data);
     }
 
     /**
@@ -69,7 +90,13 @@ class KategoriController extends Controller
      */
     public function update(Request $request, Kategori $kategori)
     {
-        //
+        $params = $request->except('_token');
+
+        if ($kategori->update($params)) {
+            Session::flash('success', 'Category has been updated.');
+        }
+
+        return redirect('admin/kategoris');
     }
 
     /**
@@ -80,6 +107,11 @@ class KategoriController extends Controller
      */
     public function destroy(Kategori $kategori)
     {
-        //
+
+        if ($kategori->delete()) {
+            Session::flash('success', 'Category has been deleted');
+        }
+
+        return redirect('admin/kategoris');
     }
 }
