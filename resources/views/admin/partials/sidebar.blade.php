@@ -80,7 +80,7 @@
                         data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('admin/transactions/create') }}">
+                                <a class="sidenav-item-link" href="{{ url('admin/transaksis') }}">
                                     <span class="nav-text">Barang Masuk</span>
                                 </a>
                             </li>

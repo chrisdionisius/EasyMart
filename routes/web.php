@@ -24,7 +24,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(
     ['prefix' => 'admin'],
     function () {
+        Route::get('transaksis/masuk/{product_id}', 'TransaksiController@create');
         Route::resource('kategoris', 'KategoriController');
-        Route::resource('produks', 'ProdukController');  
+        Route::resource('produks', 'ProdukController'); 
+        Route::resource('transaksis', 'TransaksiController'); 
     }
 );

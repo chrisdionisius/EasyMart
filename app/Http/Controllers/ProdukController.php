@@ -121,6 +121,18 @@ class ProdukController extends Controller
         return redirect('admin/produks');
     }
 
+    public function updateStok($request)
+    {
+        $productInventory = Produk::where('id', '=', $request['produk_id'])->firstOrFail();
+        
+        if ($request['jenis'] == 1) {
+            $productInventory->stok += $request['jumlah'];
+        }else{
+            $productInventory->stok -= $request['jumlah'];
+        }
+        $productInventory->save();
+
+    }
     /**
      * Remove the specified resource from storage.
      *

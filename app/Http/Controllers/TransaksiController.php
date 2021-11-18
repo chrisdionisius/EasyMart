@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Transaksi;
+use App\Produk;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -12,9 +13,21 @@ class TransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->data['currentAdminMenu'] = 'transaksi';
+        $this->data['currentAdminSubMenu'] = 'tambah';
+    }
+
+
     public function index()
     {
-        //
+        $this->data['transaksis'] = Transaksi::orderBy('created_at', 'ASC')->paginate(10);
+        $this->data['produks'] = Produk::orderBy('nama', 'ASC')->paginate(10);
+
+        return view('admin.transactions.index', $this->data);
     }
 
     /**
@@ -22,10 +35,12 @@ class TransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($product_id)
     {
-        //
+        $this->data['produk'] = Produk::find($product_id);
+        return view('admin.transactions.form', $this->data);
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +50,15 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $produk_id = $request->produk_id;
+         $this->data['user_id'] = 1;
+         $this->data['produk_id'] = $produk_id;
+         $this->data['jenis'] = $request->jenis_transaksi;
+         $this->data['jumlah'] = $request->jumlah;
+         $this->data['jumlah_awal'] = Produk::where('id', '=', $produk_id)->firstOrFail()->stok;
+        Transaksi::create($this->data);
+        app('App\Http\Controllers\ProdukController')->updateStok($this->data);
+        return redirect('admin/transaksis');
     }
 
     /**
