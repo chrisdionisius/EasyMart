@@ -24,9 +24,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(
     ['prefix' => 'admin'],
     function () {
-        Route::get('transaksis/masuk/{product_id}', 'TransaksiController@create');
         Route::resource('kategoris', 'KategoriController');
         Route::resource('produks', 'ProdukController'); 
         Route::resource('transaksis', 'TransaksiController'); 
+        Route::get('produks/{product_id}/images', 'ProdukController@images');
+        Route::get('produks/{product_id}/add-image', 'ProdukController@add_image');
+        Route::post('products/images/{product_id}', 'ProdukController@upload_image');
+        Route::delete('products/images/{product_id}', 'ProdukController@delete_image');
+        Route::get('transaksis/masuk/{product_id}', 'TransaksiController@create');
     }
 );

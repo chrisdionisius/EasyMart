@@ -14,14 +14,14 @@
                 </div>
                 <div class="card-body">
                     @include('admin.partials.flash', ['$errors' => $errors])
-                    {!! Form::open(['url' => ['admin/products/images', $product->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                    {!! Form::open(['url' => ['admin/products/images', $produk->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                     <div class="form-group">
                         {!! Form::label('image', 'Product Image') !!}
                         {!! Form::file('image', ['class' => 'form-control-file', 'placeholder' => 'product image']) !!}
                     </div>
                     <div class="form-footer pt-5 border-top">
                         <button type="submit" class="btn btn-primary btn-default">Save</button>
-                        <a href="{{ url('admin/products/'.$productID.'/images') }}" class="btn btn-secondary btn-default">Back</a>
+                        <a href="{{ url('admin/produks/'.$produkID.'/images') }}" class="btn btn-secondary btn-default">Back</a>
                     </div>
                     {!! Form::close() !!}
                 </div>

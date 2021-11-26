@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Produk;
 use App\Kategori;
+use App\ProdukImage;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductImageRequest;
 
 use Str;
 use Auth;
@@ -146,5 +148,71 @@ class ProdukController extends Controller
         }
 
         return redirect('admin/produks');
+    }
+
+    public function images($id)
+    {
+        if (empty($id)) {
+            return redirect('admin/produks/create');
+        }
+
+        $produk = Produk::findOrFail($id);
+
+        $this->data['produkID'] = $id;
+        $this->data['produkImages'] = $produk->produkImages;
+
+        return view('admin.products.images', $this->data);
+    }
+
+    public function add_image($id)
+    {
+        if (empty($id)) {
+            return redirect('admin/produks');
+        }
+
+        $produk = Produk::findOrFail($id);
+
+        $this->data['produkID'] = $id;
+        $this->data['produk'] = $produk;
+
+        return view('admin.products.image_form', $this->data);
+    }
+
+    public function upload_image(ProductImageRequest $request, $id)
+    {
+        $produk = Produk::findOrFail($id);
+
+        if ($request->has('image')) {
+            $image = $request->file('image');
+            $name = $produk->slug . "_" . time();
+            $fileName = $name . "." . $image->getClientOriginalExtension();
+
+            $folder = '/uploads/images';
+            $filePath = $image->storeAs($folder, $fileName, 'public');
+
+            $params = [
+                'produk_id' => $produk->id,
+                'path' => $filePath,
+            ];
+
+            if (ProdukImage::create($params)) {
+                Session::flash('success', 'Image has been uploaded');
+            }else {
+                Session::flash('error', 'Image could not be uploaded');
+            }
+
+            return redirect('admin/produks/' . $id . '/images');
+        }
+    }
+
+    public function delete_image($id)
+    {
+        $image = ProdukImage::findOrFail($id);
+
+        if($image->delete()){
+            Session::flash('success', 'Image has been deleted');
+        }
+
+        return redirect('admin/produks/' . $image->produk->id . '/images');
     }
 }

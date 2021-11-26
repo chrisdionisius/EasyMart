@@ -22,7 +22,7 @@
                             <th>Aksi</th>
                         </thead>
                         <tbody>
-                            @forelse ($productImages as $image)
+                            @forelse ($produkImages as $image)
                                 <tr>    
                                     <td>{{ $image->id }}</td>
                                     <td><img src="{{ asset('storage/'.$image->path) }}" style="width:150px"/></td>
@@ -43,7 +43,7 @@
                     </table>
                 </div>
                 <div class="card-footer text-right">
-                    <a href="{{ url('admin/products/'.$productID.'/add-image') }}" class="btn btn-primary">Tambahkan gambar</a>
+                    <a href="{{ url('admin/produks/'.$produkID.'/add-image') }}" class="btn btn-primary">Tambahkan gambar</a>
                 </div>
             </div>  
         </div>

@@ -29,4 +29,9 @@ class Produk extends Model
         return $this->hasMany('App\OrderDetail');
     }
 
+    public function produkImages()
+    {
+        return $this->hasMany('App\ProdukImage');
+    }
+
 }
