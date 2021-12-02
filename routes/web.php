@@ -14,12 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.dashboard');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/katalog', 'KatalogController@index');
+Route::get('/katalog/{id}', 'KatalogController@show');
 
 Route::group(
     ['prefix' => 'admin'],
