@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('user.dashboard');
-});
-
+// Route::get('/', function () {
+//     return view('user.dashboard');
+// });
+Route::get('/', 'KatalogController@dashboard');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -25,7 +25,7 @@ Route::get('/katalog', 'KatalogController@index');
 Route::get('/katalog/{id}', 'KatalogController@show');
 
 Route::group(
-    ['prefix' => 'admin'],
+    ['prefix' => 'admin', 'middleware' => ['auth']],
     function () {
         Route::resource('kategoris', 'KategoriController');
         Route::resource('produks', 'ProdukController'); 

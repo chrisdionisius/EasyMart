@@ -19,4 +19,9 @@ class KatalogController extends Controller
         $this->data['produk'] = Produk::findOrFail($id);
         return view('user.produk', $this->data);
     }
+    public function dashboard()
+    {
+        $this->data['produks'] = Produk::orderBy('created_at', 'DESC')->paginate(8);
+        return view('user.dashboard', $this->data);
+    }
 }

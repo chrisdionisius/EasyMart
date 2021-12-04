@@ -29,7 +29,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item submenu dropdown">
+                        <!-- <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                 aria-haspopup="true" aria-expanded="false">Blog</a>
                             <ul class="dropdown-menu">
@@ -46,8 +46,8 @@
                                 <li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a></li>
                                 <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        </li> -->
+                        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item"><a href="#" class="cart"><span class="ti-bag"></span></a></li>

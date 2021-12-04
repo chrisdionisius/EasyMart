@@ -23,19 +23,18 @@
         <div class="row s_product_inner">
             <div class="col-lg-6">
                 <div class="s_Product_carousel">
-                    @if ($produk->produkImages->first())
-                    @foreach($produk->produkImages as $images)
+                @forelse ($produk->produkImages as $images)
                     <div class="single-prd-item">
                         <img class="img-fluid" src="{{asset('storage/'.$images->path) }}" alt="">
                     </div>
-                    @endforeach
-
-                    @else
-                    <div class="single-prd-item">
+                        @empty
+                        <div class="single-prd-item">
                         <img class="img-fluid" src="{{URL::asset('user/img/product/p1.jpg')}}" alt="">
-                    </div>
-                    @endif
-
+                        </div>
+                        <div class="single-prd-item">
+                        <img class="img-fluid" src="{{URL::asset('user/img/product/p1.jpg')}}" alt="">
+                        </div>
+                        @endforelse
                 </div>
             </div>
             <div class="col-lg-5 offset-lg-1">
@@ -192,7 +191,7 @@
 <!--================End Product Description Area =================-->
 
 <!-- Start related-product Area -->
-<section class="related-product-area section_gap_bottom">
+<!-- <section class="related-product-area section_gap_bottom">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 text-center">
@@ -326,6 +325,6 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- End related-product Area -->
 @endsection
