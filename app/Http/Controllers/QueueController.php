@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Queue;
+use App\Order;
 
 class QueueController extends Controller
 {
@@ -39,5 +40,17 @@ class QueueController extends Controller
     {
         $transaction = Queue::get();
         app('App\Http\Controllers\OrderController')->store($transaction);
+        
+        foreach ($transaction as $key => $value) {
+            app('App\Http\Controllers\OrderDetailController')->store($value);
+            Queue::where('id', $value->id)->delete();
+        }
+        
+    }
+
+    public function confirmation()
+    {
+        $this->data['order'] = Order::latest()->first();
+        return view('user.checkout', $this->data);
     }
 }

@@ -26,7 +26,8 @@ Route::get('/katalog/{id}', 'KatalogController@show');
 Route::post('/cart', 'QueueController@insert');
 Route::get('/cart', 'QueueController@index');
 Route::delete('/cart/{id}', 'QueueController@destroy');
-Route::get('/checkout', 'QueueController@save');
+Route::get('/checkout', 'QueueController@confirmation');
+
 
 Route::group(
     ['prefix' => 'admin', 'middleware' => ['auth']],

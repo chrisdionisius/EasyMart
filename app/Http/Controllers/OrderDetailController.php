@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\OrderDetail;
+use App\Order;
 use Illuminate\Http\Request;
 
 class OrderDetailController extends Controller
@@ -33,9 +34,17 @@ class OrderDetailController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($value)
     {
-        //
+        $product = array(
+            'order_id' => Order::latest()->first()->id,
+            'produk_id' => $value->produk_id,
+            'qty' => $value->qty,
+            'total' => $value->total,
+            'created_at' => \Carbon\carbon::now(),
+            'updated_at' => \Carbon\carbon::now()
+        );
+        OrderDetail::insert($product);
     }
 
     /**

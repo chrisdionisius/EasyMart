@@ -14,7 +14,7 @@ class Order extends Model
         'kembalian'
     ];
 
-    public function produkOrder()
+    public function orderDetails()
     {
         return $this->hasMany('App\OrderDetail', 'order_id');
     }

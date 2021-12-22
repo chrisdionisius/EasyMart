@@ -23,50 +23,50 @@
         <div class="row s_product_inner">
             <div class="col-lg-6">
                 <div class="s_Product_carousel">
-                @forelse ($produk->produkImages as $images)
+                    @forelse ($produk->produkImages as $images)
                     <div class="single-prd-item">
                         <img class="img-fluid" src="{{asset('storage/'.$images->path) }}" alt="">
                     </div>
-                        @empty
-                        <div class="single-prd-item">
+                    @empty
+                    <div class="single-prd-item">
                         <img class="img-fluid" src="{{URL::asset('user/img/product/p1.jpg')}}" alt="">
-                        </div>
-                        <div class="single-prd-item">
+                    </div>
+                    <div class="single-prd-item">
                         <img class="img-fluid" src="{{URL::asset('user/img/product/p1.jpg')}}" alt="">
-                        </div>
-                        @endforelse
+                    </div>
+                    @endforelse
                 </div>
             </div>
             <div class="col-lg-5 offset-lg-1">
                 <form action="/cart" method="POST">
-                @csrf
-                <input type="hidden" id="price" name="price" value="{{$produk->harga}}">
-                <input type="hidden" id="produk_id" name="produk_id" value="{{$produk->id}}">
-                <div class="s_product_text">
-                    <h3>{{$produk->nama}}</h3>
-                    <h2>Rp {{number_format( $produk->harga , 0 , '.' , '.' ) }}</h2>
-                    <ul class="list">
-                        <li><a class="active" href="#"><span>Category</span> : Household</a></li>
-                        <li><a href="#"><span>Availibility</span> : {{$produk->stok}}</a></li>
-                    </ul>
-                    <p>{{$produk->keterangan}}</p>
-                    <div class="product_count">
-                        <label for="qty">Quantity:</label>
-                        <input type="number" name="qty" id="sst" max="{{$produk->stok}}" value="1" title="Quantity:"
-                            class="input-text qty">
-                        <button
-                            onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-                            class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-                        <button
-                            onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-                            class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+                    @csrf
+                    <input type="hidden" id="price" name="price" value="{{$produk->harga}}">
+                    <input type="hidden" id="produk_id" name="produk_id" value="{{$produk->id}}">
+                    <div class="s_product_text">
+                        <h3>{{$produk->nama}}</h3>
+                        <h2>Rp {{number_format( $produk->harga , 0 , '.' , '.' ) }}</h2>
+                        <ul class="list">
+                            <li><a class="active" href="#"><span>Category</span> : Household</a></li>
+                            <li><a href="#"><span>Availibility</span> : {{$produk->stok}}</a></li>
+                        </ul>
+                        <p>{{$produk->keterangan}}</p>
+                        <div class="product_count">
+                            <label for="qty">Quantity:</label>
+                            <input type="number" name="qty" id="sst" max="{{$produk->stok}}" value="1" title="Quantity:"
+                                class="input-text qty">
+                            <button
+                                onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+                                class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+                            <button
+                                onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
+                                class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+                        </div>
+                        <div class="card_area d-flex align-items-center">
+                            <input type="submit" class="primary-btn" value="Add to Cart">
+                            <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
+                            <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
+                        </div>
                     </div>
-                    <div class="card_area d-flex align-items-center">
-                        <input type="submit" class="primary-btn" value="Add to Cart">
-                        <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
-                        <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
-                    </div>
-                </div>
                 </form>
             </div>
         </div>
