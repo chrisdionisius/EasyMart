@@ -23,6 +23,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/katalog', 'KatalogController@index');
 Route::get('/katalog/{id}', 'KatalogController@show');
+Route::post('/cart', 'QueueController@insert');
+Route::get('/cart', 'QueueController@index');
+Route::delete('/cart/{id}', 'QueueController@destroy');
+Route::get('/checkout', 'QueueController@save');
 
 Route::group(
     ['prefix' => 'admin', 'middleware' => ['auth']],

@@ -38,6 +38,10 @@
                 </div>
             </div>
             <div class="col-lg-5 offset-lg-1">
+                <form action="/cart" method="POST">
+                @csrf
+                <input type="hidden" id="price" name="price" value="{{$produk->harga}}">
+                <input type="hidden" id="produk_id" name="produk_id" value="{{$produk->id}}">
                 <div class="s_product_text">
                     <h3>{{$produk->nama}}</h3>
                     <h2>Rp {{number_format( $produk->harga , 0 , '.' , '.' ) }}</h2>
@@ -48,7 +52,7 @@
                     <p>{{$produk->keterangan}}</p>
                     <div class="product_count">
                         <label for="qty">Quantity:</label>
-                        <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:"
+                        <input type="number" name="qty" id="sst" max="{{$produk->stok}}" value="1" title="Quantity:"
                             class="input-text qty">
                         <button
                             onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
@@ -58,11 +62,12 @@
                             class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
                     </div>
                     <div class="card_area d-flex align-items-center">
-                        <a class="primary-btn" href="#">Add to Cart</a>
+                        <input type="submit" class="primary-btn" value="Add to Cart">
                         <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
                         <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
     </div>

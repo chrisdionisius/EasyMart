@@ -33,9 +33,15 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($transaction)
     {
-        //
+        $order = Order::create([
+            'no_order' => 'OD-'.date('Ymd').rand(1111,9999),
+            'grand_total' => $transaction->sum('total'),
+            'pembayaran' => $transaction->sum('total'),
+            'user_id' => 1,
+            'kembalian' => $transaction->sum('total'),
+        ]);
     }
 
     /**
