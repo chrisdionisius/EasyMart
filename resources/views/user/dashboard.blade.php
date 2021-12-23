@@ -277,7 +277,7 @@
 <!-- End exclusive deal Area -->
 
 <!-- Start brand Area -->
-<section class="brand-area section_gap">
+<!-- <section class="brand-area section_gap">
     <div class="container">
         <div class="row">
             <a class="col single-img" href="#">
@@ -297,7 +297,7 @@
             </a>
         </div>
     </div>
-</section>
+</section> -->
 <!-- End brand Area -->
 
 <!-- Start related-product Area -->

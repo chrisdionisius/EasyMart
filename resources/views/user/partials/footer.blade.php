@@ -5,13 +5,13 @@
                 <div class="single-footer-widget">
                     <h6>About Us</h6>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                        ut labore dolore
-                        magna aliqua.
+                    Beli aneka produk di Toko fumikovape secara online sekarang. Kamu bisa beli produk dari Toko fumikovape dengan aman & mudah dari Kota Malang.
+                    Fumiko Vape Store Jl. Puntodewo Kav 2, Malang || Retail & Wholesale || ig : @fumikovape || Buka 14.00 - 24.00 wib
+                    malang - Blimbing, Kota Malang, 65121
                     </p>
                 </div>
             </div>
-            <div class="col-lg-4  col-md-6 col-sm-6">
+            <!-- <div class="col-lg-4  col-md-6 col-sm-6">
                 <div class="single-footer-widget">
                     <h6>Newsletter</h6>
                     <p>Stay update with our latest</p>
@@ -35,16 +35,16 @@
                                         type="text">
                                 </div>
 
-                                <!-- <div class="col-lg-4 col-md-4">
+                                <div class="col-lg-4 col-md-4">
 												<button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
-											</div>  -->
+											</div> 
                             </div>
                             <div class="info"></div>
                         </form>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3  col-md-6 col-sm-6">
+            </div> -->
+            <!-- <div class="col-lg-3  col-md-6 col-sm-6">
                 <div class="single-footer-widget mail-chimp">
                     <h6 class="mb-20">Instragram Feed</h6>
                     <ul class="instafeed d-flex flex-wrap">
@@ -58,16 +58,15 @@
                         <li><img src="img/i8.jpg" alt=""></li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
             <div class="col-lg-2 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
                     <h6>Follow Us</h6>
                     <p>Let us be social</p>
                     <div class="footer-social d-flex align-items-center">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                        <a href="#"><i class="fa fa-behance"></i></a>
+                        <a href="https://www.facebook.com/fumikovapestore/"><i class="fa fa-facebook"></i></a>
+                        <a href="http://fumikovape.com/"><i class="fa fa-globe"></i></a>
+                        <a href="https://www.instagram.com/fumikovape/?hl=id"><i class="fa fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -77,8 +76,9 @@
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;<script>
                 document.write(new Date().getFullYear());
-                </script> All rights reserved | This template is made with <i class="fa fa-heart-o"
-                    aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                </script> All rights reserved | Easy Mart 
+                <!-- <i class="fa fa-heart-o"
+                    aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
         </div>

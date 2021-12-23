@@ -65,8 +65,8 @@
                         </div>
                         <div class="card_area d-flex align-items-center">
                             <input type="submit" class="primary-btn" value="Add to Cart">
-                            <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
-                            <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
+                            <!-- <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
+                            <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a> -->
                         </div>
                     </div>
                 </form>
@@ -78,7 +78,7 @@
 
 <!--================Product Description Area =================-->
 <section class="product_description_area">
-    <div class="container">
+    <!-- <div class="container">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
@@ -193,7 +193,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </section>
 <!--================End Product Description Area =================-->
 
