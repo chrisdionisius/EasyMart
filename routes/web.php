@@ -32,12 +32,15 @@ Route::get('/checkout', 'QueueController@save');
 Route::group(
     ['prefix' => 'admin', 'middleware' => ['auth']],
     function () {
+        Route::get('dashboard', 'DashboardController@index');
         Route::get('transaksis/listTransaksi', 'TransaksiController@listTransaksi');
         Route::get('transaksis/listPenjualan', 'TransaksiController@listPenjualan');
         Route::get('transaksis/listRestock', 'TransaksiController@listRestock');
+        Route::get('transaksis/listStock', 'TransaksiController@listStock');
         Route::get('transaksis/masuk/{product_id}', 'TransaksiController@create');
         Route::resource('transaksis', 'TransaksiController');
         Route::resource('kategoris', 'KategoriController');
+        Route::resource('orders', 'OrderController');
         Route::get('produks/{product_id}/images', 'ProdukController@images');
         Route::get('produks/{product_id}/add-image', 'ProdukController@add_image');
         Route::resource('produks', 'ProdukController'); 

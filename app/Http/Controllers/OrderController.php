@@ -14,7 +14,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $this->data['currentAdminMenu'] = 'laporan';
+        $this->data['currentAdminSubMenu'] = 'tambah';
+        $this->data['orders'] = Order::orderBy('created_at', 'DESC')->paginate(10);
+        return view('admin.orders.index', $this->data);
     }
 
     /**
@@ -52,7 +55,8 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        $this->data['order'] = Order::where('id', $order->id)->first();
+        return view('admin.orders.invoice', $this->data);
     }
 
     /**

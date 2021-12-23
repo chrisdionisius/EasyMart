@@ -117,19 +117,19 @@
                             </li>
 
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('admin/transaksis/listPenjualan') }}">
+                                <a class="sidenav-item-link" href="{{ url('admin/orders') }}">
                                     <span class="nav-text">Riwayat Penjualan</span>
                                 </a>
                             </li>
 
-                            <li>
+                            <!-- <li>
                                 <a class="sidenav-item-link" href="{{url('admin/transactions/penjualan')}}">
                                     <span class="nav-text">Laporan Penjualan</span>
                                 </a>
-                            </li>
+                            </li> -->
 
                             <li>
-                                <a class="sidenav-item-link" href="{{url('admin/inventories/stok')}}">
+                                <a class="sidenav-item-link" href="{{url('admin/transaksis/listStock')}}">
                                     <span class="nav-text">Laporan Stock</span>
                                 </a>
                             </li>

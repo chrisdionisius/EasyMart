@@ -54,6 +54,14 @@ class TransaksiController extends Controller
         return view('admin.transactions.listTransaksi', $this->data);
     }
 
+    public function listStock()
+    {
+        $this->data['currentAdminMenu'] = 'laporan';
+        $this->data['currentAdminSubMenu'] = 'tambah';
+        $this->data['produks'] = Produk::orderBy('created_at', 'DESC')->paginate(10);
+        return view('admin.transactions.listStock', $this->data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
