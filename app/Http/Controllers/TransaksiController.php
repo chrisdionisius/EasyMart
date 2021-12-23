@@ -30,6 +30,30 @@ class TransaksiController extends Controller
         return view('admin.transactions.index', $this->data);
     }
 
+    public function listTransaksi()
+    {
+        $this->data['currentAdminMenu'] = 'laporan';
+        $this->data['currentAdminSubMenu'] = 'tambah';
+        $this->data['transaksis'] = Transaksi::orderBy('created_at', 'DESC')->paginate(10);
+        return view('admin.transactions.listTransaksi', $this->data);
+    }
+
+    public function listPenjualan()
+    {
+        $this->data['currentAdminMenu'] = 'laporan';
+        $this->data['currentAdminSubMenu'] = 'tambah';
+        $this->data['transaksis'] = Transaksi::where('jenis', 2)->orderBy('created_at', 'DESC')->paginate(10);
+        return view('admin.transactions.listTransaksi', $this->data);
+    }
+
+    public function listRestock()
+    {
+        $this->data['currentAdminMenu'] = 'laporan';
+        $this->data['currentAdminSubMenu'] = 'tambah';
+        $this->data['transaksis'] = Transaksi::where('jenis', 1)->orderBy('created_at', 'DESC')->paginate(10);
+        return view('admin.transactions.listTransaksi', $this->data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -50,12 +74,25 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-         $produk_id = $request->produk_id;
-         $this->data['user_id'] = 1;
-         $this->data['produk_id'] = $produk_id;
-         $this->data['jenis'] = $request->jenis_transaksi;
-         $this->data['jumlah'] = $request->jumlah;
-         $this->data['jumlah_awal'] = Produk::where('id', '=', $produk_id)->firstOrFail()->stok;
+        $produk_id = $request->produk_id;
+        $this->data['user_id'] = 1;
+        $this->data['produk_id'] = $produk_id;
+        $this->data['jenis'] = $request->jenis_transaksi;
+        $this->data['jumlah'] = $request->jumlah;
+        $this->data['jumlah_awal'] = Produk::where('id', '=', $produk_id)->firstOrFail()->stok;
+        Transaksi::create($this->data);
+        app('App\Http\Controllers\ProdukController')->updateStok($this->data);
+        return redirect('admin/transaksis');
+    }
+
+    public function penjualan($request)
+    {
+        $produk_id = $request->produk_id;
+        $this->data['user_id'] = 1;
+        $this->data['produk_id'] = $produk_id;
+        $this->data['jenis'] = 2;
+        $this->data['jumlah'] = $request->qty;
+        $this->data['jumlah_awal'] = Produk::where('id', '=', $produk_id)->firstOrFail()->stok;
         Transaksi::create($this->data);
         app('App\Http\Controllers\ProdukController')->updateStok($this->data);
         return redirect('admin/transaksis');

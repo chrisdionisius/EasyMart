@@ -105,19 +105,19 @@
                         data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('admin/transactions/') }}">
+                                <a class="sidenav-item-link" href="{{ url('admin/transaksis/listTransaksi') }}">
                                     <span class="nav-text">Riwayat Transaksi</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('admin/transactions/input') }}">
+                                <a class="sidenav-item-link" href="{{ url('admin/transaksis/listRestock') }}">
                                     <span class="nav-text">Riwayat Input Barang</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('admin/transactions/output') }}">
+                                <a class="sidenav-item-link" href="{{ url('admin/transaksis/listPenjualan') }}">
                                     <span class="nav-text">Riwayat Penjualan</span>
                                 </a>
                             </li>

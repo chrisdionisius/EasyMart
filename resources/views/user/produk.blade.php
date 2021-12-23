@@ -46,7 +46,7 @@
                         <h3>{{$produk->nama}}</h3>
                         <h2>Rp {{number_format( $produk->harga , 0 , '.' , '.' ) }}</h2>
                         <ul class="list">
-                            <li><a class="active" href="#"><span>Category</span> : Household</a></li>
+                            <li><a class="active" href="#"><span>Category</span> : {{$produk->kategori->nama}}</a></li>
                             <li><a href="#"><span>Availibility</span> : {{$produk->stok}}</a></li>
                         </ul>
                         <p>{{$produk->keterangan}}</p>

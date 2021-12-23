@@ -19,26 +19,30 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'KatalogController@dashboard');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'KatalogController@dashboard')->name('home');
 
 Route::get('/katalog', 'KatalogController@index');
 Route::get('/katalog/{id}', 'KatalogController@show');
 Route::post('/cart', 'QueueController@insert');
 Route::get('/cart', 'QueueController@index');
 Route::delete('/cart/{id}', 'QueueController@destroy');
-Route::get('/checkout', 'QueueController@confirmation');
+Route::get('/checkout', 'QueueController@save');
 
-
+ 
 Route::group(
     ['prefix' => 'admin', 'middleware' => ['auth']],
     function () {
+        Route::get('transaksis/listTransaksi', 'TransaksiController@listTransaksi');
+        Route::get('transaksis/listPenjualan', 'TransaksiController@listPenjualan');
+        Route::get('transaksis/listRestock', 'TransaksiController@listRestock');
+        Route::get('transaksis/masuk/{product_id}', 'TransaksiController@create');
+        Route::resource('transaksis', 'TransaksiController');
         Route::resource('kategoris', 'KategoriController');
-        Route::resource('produks', 'ProdukController'); 
-        Route::resource('transaksis', 'TransaksiController'); 
         Route::get('produks/{product_id}/images', 'ProdukController@images');
         Route::get('produks/{product_id}/add-image', 'ProdukController@add_image');
+        Route::resource('produks', 'ProdukController'); 
         Route::post('products/images/{product_id}', 'ProdukController@upload_image');
         Route::delete('products/images/{product_id}', 'ProdukController@delete_image');
-        Route::get('transaksis/masuk/{product_id}', 'TransaksiController@create');
+        
     }
 );

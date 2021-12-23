@@ -10,7 +10,6 @@ class QueueController extends Controller
 {
     public function insert(Request $request)
     {
-        //$this->validate();
         $transaction = new Queue;
         $transaction->produk_id = $request->produk_id;
         $transaction->qty = $request->qty;
@@ -38,14 +37,20 @@ class QueueController extends Controller
 
     public function save()
     {
-        $transaction = Queue::get();
-        app('App\Http\Controllers\OrderController')->store($transaction);
+        if (Queue::count()>0) {
+            $transaction = Queue::get();
+            app('App\Http\Controllers\OrderController')->store($transaction);
         
-        foreach ($transaction as $key => $value) {
-            app('App\Http\Controllers\OrderDetailController')->store($value);
-            Queue::where('id', $value->id)->delete();
+            foreach ($transaction as $key => $value) {
+                app('App\Http\Controllers\OrderDetailController')->store($value);
+                app('App\Http\Controllers\TransaksiController')->penjualan($value);
+                Queue::where('id', $value->id)->delete();
+            }
+            return $this->confirmation();
         }
-        
+        else {
+            return redirect()->back();
+        }
     }
 
     public function confirmation()
