@@ -30,18 +30,17 @@
                 <div class="login_box_img">
                     <img class="img-fluid" src="{{URL::asset('user/img/login.jpg')}}" alt="" />
                     <div class="hover">
-                        <h4>New to our website?</h4>
+                        <h4>Belum memiliki akun ?</h4>
                         <p>
-                            There are advances being made in science and technology
-                            everyday, and a good example of this is the
+                            Daftar sekarang agar bisa memulai transaksi lewat sistem.
                         </p>
-                        <a class="primary-btn" href="{{ route('register') }}">Create an Account</a>
+                        <a class="primary-btn" href="{{ route('register') }}">BUAT AKUN</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="login_form_inner">
-                    <h3>Log in to enter</h3>
+                    <h3>SILAHKAN LOGIN UNTUK MELANJUTKAN</h3>
                     <form class="row login_form" action="{{ route('login') }}" method="POST" id="contactForm"
                         novalidate="novalidate">
                         @csrf

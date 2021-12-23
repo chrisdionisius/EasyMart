@@ -20,13 +20,7 @@
                                 aria-haspopup="true" aria-expanded="false">Katalog</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="/katalog">Katalog</a></li>
-                                <li class="nav-item"><a class="nav-link" href="single-product.html">Product
-                                        Details</a></li>
-                                <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a>
-                                </li>
                                 <li class="nav-item"><a class="nav-link" href="/cart">Shopping Cart</a></li>
-                                <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a>
-                                </li>
                             </ul>
                         </li>
                         @guest

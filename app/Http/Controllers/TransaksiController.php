@@ -58,7 +58,7 @@ class TransaksiController extends Controller
     {
         $this->data['currentAdminMenu'] = 'laporan';
         $this->data['currentAdminSubMenu'] = 'tambah';
-        $this->data['produks'] = Produk::orderBy('created_at', 'DESC')->paginate(10);
+        $this->data['produks'] = Produk::orderBy('stok', 'DESC')->paginate(10);
         return view('admin.transactions.listStock', $this->data);
     }
 

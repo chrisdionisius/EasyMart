@@ -22,6 +22,7 @@ Auth::routes();
 Route::get('/home', 'KatalogController@dashboard')->name('home');
 
 Route::get('/katalog', 'KatalogController@index');
+Route::get('/katalog/category/{id}', 'KatalogController@showByCategory');
 Route::get('/katalog/{id}', 'KatalogController@show');
 Route::post('/cart', 'QueueController@insert');
 Route::get('/cart', 'QueueController@index');

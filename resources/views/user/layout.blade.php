@@ -5,7 +5,7 @@
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="img/fav.png">
+    <link rel="shortcut icon" href="{{URL::asset('user/img/logoeasy.png')}}">
     <!-- Author Meta -->
     <meta name="author" content="CodePixar">
     <!-- Meta Description -->
@@ -62,6 +62,36 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="{{ URL::asset('user/js/gmaps.min.js') }}"></script>
     <script src="{{ URL::asset('user/js/main.js') }}"></script>
+    <script>
+    $(".active-banner-slider").owlCarousel({
+        items: 1,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        loop: true,
+        nav: true,
+        navText: [
+            "<img src='{{URL::asset('user/img/banner/prev.png')}}'>",
+            "<img src='{{URL::asset('user/img/banner/next.png')}}'>",
+        ],
+        dots: false,
+    });
+
+    /*=================================
+    Javascript for product area carousel
+    ==================================*/
+    $(".active-product-area").owlCarousel({
+        items: 1,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        loop: true,
+        nav: true,
+        navText: [
+            "<img src='{{URL::asset('user/img/product/prev.png')}}'>",
+            "<img src='{{URL::asset('user/img/product/next.png')}}'>",
+        ],
+        dots: false,
+    });
+    </script>
 </body>
 
 </html>

@@ -79,8 +79,8 @@ $(document).ready(function () {
         loop: true,
         nav: true,
         navText: [
-            "<img src='{{URL::asset('user/img/product/prev.pn')}}'>",
-            "<img src='{{URL::asset('user/img/product/next.pn')}}'>",
+            "<img src='{{URL::asset('user/img/product/prev.png')}}'>",
+            "<img src='{{URL::asset('user/img/product/next.png')}}'>",
         ],
         dots: false,
     });
@@ -107,8 +107,8 @@ $(document).ready(function () {
         loop: true,
         nav: true,
         navText: [
-            "<img src='{{URL::asset('user/img/product/prev.pn')}}'>",
-            "<img src='{{URL::asset('user/img/product/next.pn')}}'>",
+            "<img src='{{URL::asset('user/img/product/prev.png')}}'>",
+            "<img src='{{URL::asset('user/img/product/next.png')}}'>",
         ],
         dots: false,
     });

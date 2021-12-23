@@ -11,6 +11,7 @@ class KatalogController extends Controller
 {
     public function index()
     {
+        $this->data['kategoris'] = Kategori::get();
         $this->data['produks'] = Produk::orderBy('nama', 'ASC')->paginate(6);
         return view('user.katalog', $this->data);
     }
@@ -23,5 +24,11 @@ class KatalogController extends Controller
     {
         $this->data['produks'] = Produk::orderBy('created_at', 'DESC')->paginate(8);
         return view('user.dashboard', $this->data);
+    }
+    public function showByCategory($category)
+    {
+        $this->data['kategoris'] = Kategori::get();
+        $this->data['produks'] = Produk::where('kategori_id', '=', $category)->paginate(10);
+        return view('user.katalog', $this->data);
     }
 }
