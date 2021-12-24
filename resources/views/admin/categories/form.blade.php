@@ -23,7 +23,8 @@ $formTitle = !empty($kategori) ? 'Update' : 'New'
                     @endif
                     <div class="form-group">
                         {!! Form::label('nama', 'Nama') !!}
-                        {!! Form::text('nama', null, ['class' => 'form-control', 'placeholder' => 'nama kategori']) !!}
+                        {!! Form::text('nama', null, ['class' => 'form-control', 'placeholder' => 'nama
+                        kategori','required' => 'required']) !!}
                     </div>
                     <div class="form-footer pt-5 border-top">
                         <button type="submit" class="btn btn-primary btn-default">Save</button>

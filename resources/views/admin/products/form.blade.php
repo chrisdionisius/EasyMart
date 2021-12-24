@@ -27,22 +27,24 @@ $formTitle = !empty($category) ? 'Update' : 'Tambah'
 
                     <div class="form-group">
                         {!! Form::label('name', 'Nama produk') !!}
-                        {!! Form::text('nama', null, ['class' => 'form-control', 'placeholder' => 'nama produk']) !!}
+                        {!! Form::text('nama', null, ['class' => 'form-control', 'placeholder' => 'nama produk',
+                        'required' => 'required']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('price', 'Harga') !!}
-                        {!! Form::text('harga', null, ['class' => 'form-control', 'placeholder' => 'harga']) !!}
+                        {!! Form::text('harga', null, ['class' => 'form-control', 'placeholder' => 'harga','required' =>
+                        'required']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('category_ids', 'Kategori') !!}
-                        {!! Form::select('kategori_id', $kategoris, null, ['placeholder' => 'Pick a
-                        size...']); !!}
+                        {!! Form::select('kategori_id', $kategoris, null, ['placeholder' => 'Pilih Kategori', 'required'
+                        => 'required']); !!}
                     </div>
 
                     <div class="form-group">
                         {!! Form::label('description', 'Deskripsi produk') !!}
                         {!! Form::textarea('keterangan', null, ['class' => 'form-control', 'placeholder' =>
-                        'deskripsi']) !!}
+                        'deskripsi', 'required' => 'required']) !!}
                     </div>
                     <div class="form-footer pt-5 border-top">
                         <button type="submit" class="btn btn-primary btn-default">Save</button>
