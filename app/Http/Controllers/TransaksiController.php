@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Transaksi;
 use App\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransaksiController extends Controller
 {
@@ -83,7 +84,7 @@ class TransaksiController extends Controller
     public function store(Request $request)
     {
         $produk_id = $request->produk_id;
-        $this->data['user_id'] = 1;
+        $this->data['user_id'] = Auth::user()->id;
         $this->data['produk_id'] = $produk_id;
         $this->data['jenis'] = $request->jenis_transaksi;
         $this->data['jumlah'] = $request->jumlah;
@@ -96,7 +97,7 @@ class TransaksiController extends Controller
     public function penjualan($request)
     {
         $produk_id = $request->produk_id;
-        $this->data['user_id'] = 1;
+        $this->data['user_id'] = Auth::user()->id;
         $this->data['produk_id'] = $produk_id;
         $this->data['jenis'] = 2;
         $this->data['jumlah'] = $request->qty;

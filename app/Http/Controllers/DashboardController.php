@@ -30,7 +30,7 @@ class DashboardController extends Controller
                                 ->orderBy('jumlah','DESC')
                                 ->take(5)
                                 ->get();
-        $this->data['inventories'] = Produk::all();
+        $this->data['inventories'] = Produk::take(5)->get();
         return view('admin.dashboard.index',$this->data);
     }
 }

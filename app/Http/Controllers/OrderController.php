@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -42,7 +43,7 @@ class OrderController extends Controller
             'no_order' => 'OD-'.date('Ymd').rand(1111,9999),
             'grand_total' => $transaction->sum('total'),
             'pembayaran' => $transaction->sum('total'),
-            'user_id' => 1,
+            'user_id' => Auth::user()->id,
             'kembalian' => $transaction->sum('total'),
         ]);
     }
